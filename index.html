@@ -7,11 +7,11 @@
     <style>
         :root {
             --bg-color: #0b0f19;
-            --panel-bg: rgba(30, 41, 59, 0.4);
+            --panel-bg: rgba(15, 23, 42, 0.6);
             --accent-color: #38bdf8;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(56, 189, 248, 0.1);
         }
 
         * {
@@ -33,44 +33,74 @@
             margin: 0 auto;
         }
 
-        /* Hero Banner Estilo Glassmorphism */
+        /* Hero Banner con Imagen Temática de Fondo */
         .hero-banner {
-            background: linear-gradient(135deg, #1e1b4b, #0f172a);
-            border-radius: 12px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+            border-radius: 16px;
             padding: 40px 30px;
             margin-bottom: 25px;
-            border: 1px solid #312e81;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
             justify-content: space-between;
             align-items: center;
+            overflow: hidden;
         }
 
-        .hero-main {
+        /* Bloque de Identidad con Avatar */
+        .hero-profile {
+            display: flex;
+            align-items: center;
+            gap: 25px;
             flex: 1;
             min-width: 300px;
-            margin-bottom: 20px;
+        }
+
+        /* Contenedor del Avatar Circular Premium */
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38bdf8, #1e1b4b);
+            padding: 3px; /* Simula el borde brillante */
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            flex-shrink: 0;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #1e293b;
+        }
+
+        .hero-text-block {
+            flex: 1;
         }
 
         .hero-contact {
-            min-width: 250px;
+            min-width: 260px;
             text-align: right;
             font-size: 0.95rem;
             color: var(--text-muted);
-            border-left: 1px solid #312e81;
-            padding-left: 20px;
+            border-left: 1px solid rgba(56, 189, 248, 0.2);
+            padding-left: 25px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
             letter-spacing: -1px;
             color: #ffffff;
             background: linear-gradient(to right, #ffffff, #60a5fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .title-badge {
@@ -79,148 +109,95 @@
             color: var(--accent-color);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
         }
 
-        /* Layout Grid Flexible */
+        /* Grid */
         .main-layout {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .col-left {
-            flex: 2;
-            min-width: 320px;
-        }
+        .col-left { flex: 2; min-width: 320px; }
+        .col-right { flex: 1; min-width: 280px; }
 
-        .col-right {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        /* Contenedores de Cristal Esmerilado */
+        /* Paneles Esmerilados */
         .panel {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 25px;
             margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .panel-accent {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(30, 41, 59, 0.4));
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.6));
+            border: 1px solid rgba(56, 189, 248, 0.25);
         }
 
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: #ffffff;
             margin-bottom: 20px;
             font-weight: 700;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 8px;
         }
 
-        h2::before {
-            content: "// ";
-            color: var(--accent-color);
-            font-weight: 800;
-        }
+        h2::before { content: "// "; color: var(--accent-color); font-weight: 800; }
 
         .job-card {
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding-bottom: 15px;
         }
 
-        .job-card:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
+        .job-card:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+        .job-title { font-size: 1.15rem; color: #f8fafc; font-weight: 600; }
+        .job-meta { font-size: 0.85rem; color: var(--accent-color); margin-bottom: 10px; text-transform: uppercase; font-weight: 500; }
+        p { color: #cbd5e1; font-size: 0.95rem; text-align: justify; margin-bottom: 12px; }
 
-        .job-title {
-            font-size: 1.1rem;
-            color: #f8fafc;
-            font-weight: 600;
-        }
-
-        .job-meta {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            text-align: justify;
-            margin-bottom: 10px;
-        }
-
-        /* Widgets de Mando (KPIs) */
+        /* KPI Dashboard elements */
         .kpi-wrapper {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            border-top: 1px dashed rgba(56, 189, 248, 0.2);
             padding-top: 15px;
         }
 
-        .kpi-card {
-            text-align: center;
-            flex: 1;
-        }
+        .kpi-card { text-align: center; flex: 1; }
+        .kpi-val { font-size: 1.6rem; font-weight: 700; color: var(--accent-color); }
+        .kpi-lbl { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .kpi-val {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .kpi-lbl {
-            font-size: 0.7rem;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Etiquetas Tecnológicas */
+        /* Pills */
         .pill {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             color: #cbd5e1;
             padding: 5px 12px;
             font-size: 0.8rem;
             border-radius: 20px;
             margin: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             font-weight: 500;
         }
 
         .pill-blue {
             background: rgba(56, 189, 248, 0.1);
             color: var(--accent-color);
-            border: 1px solid rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        /* Ajustes Móviles */
         @media (max-width: 768px) {
-            .hero-contact {
-                text-align: left;
-                border-left: none;
-                padding-left: 0;
-                margin-top: 10px;
-            }
-            .main-layout {
-                flex-direction: column;
-            }
+            .hero-profile { flex-direction: column; text-align: center; }
+            .hero-contact { text-align: center; border-left: none; border-top: 1px solid rgba(56, 189, 248, 0.2); padding-left: 0; padding-top: 15px; }
+            .main-layout { flex-direction: column; }
         }
     </style>
 </head>
@@ -229,10 +206,15 @@
     <div class="container">
 
         <header class="hero-banner">
-            <div class="hero-main">
-                <div class="title-badge">Strategic Data Leader</div>
-                <h1>Manuel Torres Guevara</h1>
-                <p style="color: #94a3b8; font-size: 1.05rem;">Transformando ecosistemas de datos complejos en rentabilidad real y ventajas competitivas del negocio.</p>
+            <div class="hero-profile">
+                <div class="avatar-container">
+                    <img src="tu-foto.jpg" alt="Manuel Torres Guevara">
+                </div>
+                <div class="hero-text-block">
+                    <div class="title-badge">Strategic Data Leader</div>
+                    <h1>Manuel Torres Guevara</h1>
+                    <p style="color: #94a3b8; font-size: 1.05rem; margin: 0;">Transformando ecosistemas de datos complejos en rentabilidad real y ventajas competitivas.</p>
+                </div>
             </div>
             <div class="hero-contact">
                 <span style="color: #ffffff; font-weight: 600;">Madrid, España</span><br>
@@ -278,7 +260,7 @@
                 <div class="panel panel-accent">
                     <h2>Simbiótica de Negocio e IA</h2>
                     <p style="font-size: 0.9rem; font-style: italic; color: #e2e8f0; margin-bottom: 0;">
-                        "Concibo la Inteligencia Artificial como el multiplicador de velocidad operativa más potente. Automatizo el procesamiento básico del dato para destinar el 100% de mi capacidad ejecutiva a la negociación fina, la estrategia de margen y las relaciones humanas de valor."
+                        "Concibo la Inteligencia Artificial como el multiplicador de velocidad operativa más potente. Automatizo el procesamiento básico del dato para destinar el 100% de mi capacidad ejecutiva a la estrategia de margen y las relaciones humanas de valor."
                     </p>
                     <div class="kpi-wrapper">
                         <div class="kpi-card"><div class="kpi-val">+10a</div><div class="kpi-lbl">Trayectoria</div></div>
@@ -305,12 +287,6 @@
                     <span class="pill">SAP SD</span>
                     <span class="pill">Business Objects</span>
                     <span class="pill">Nielsen / Scentia</span>
-                </div>
-
-                <div class="panel" style="border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.03); padding: 15px;">
-                    <p style="font-size: 0.85rem; color: #94a3b8; margin: 0;">
-                        <strong>Estándar de Integridad:</strong> Innegociable la manipulación de información analítica por complacencia corporativa o los entornos basados en la imposición sin lógica de negocio.
-                    </p>
                 </div>
             </aside>
 
