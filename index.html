@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuel Torres Guevara | Strategic Data Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --panel-bg: rgba(15, 23, 42, 0.6);
+            --bg-color: #0a0e1a;
+            --bg-secondary: #0f1628;
+            --panel-bg: rgba(15, 22, 40, 0.5);
             --accent-color: #38bdf8;
             --accent-purple: #a78bfa;
+            --accent-emerald: #10b981;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border-color: rgba(56, 189, 248, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -21,51 +27,101 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             padding: 0;
             margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Animación de fondo */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Animación de entrada */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.25); }
+            50% { box-shadow: 0 0 60px rgba(56, 189, 248, 0.4); }
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
-        /* Sección de Introducción Estilo Nacho Caballero */
+        /* ==================== HERO SECTION ==================== */
         .hero-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
-            padding: 40px 0 60px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 0 100px 0;
+            animation: slideInUp 0.8s ease-out;
         }
 
         .hero-content {
             flex: 1;
             min-width: 320px;
+            z-index: 2;
         }
 
         .hero-visual {
-            min-width: 280px;
+            flex: 0 1 300px;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 1s ease-out 0.3s backwards;
         }
 
+        /* Avatar con efecto 3D */
         .avatar-frame {
             position: relative;
-            width: 220px;
-            height: 220px;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-color), #1e1b4b);
-            padding: 4px;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-purple), #1e1b4b);
+            padding: 6px;
+            box-shadow: 
+                0 0 60px rgba(56, 189, 248, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: pulse-glow 4s ease-in-out infinite;
+            transition: var(--transition);
+        }
+
+        .avatar-frame:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 80px rgba(56, 189, 248, 0.4),
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 40px rgba(255, 255, 255, 0.15);
         }
 
         .avatar-frame img {
@@ -74,125 +130,253 @@
             border-radius: 50%;
             object-fit: cover;
             background-color: #1e293b;
+            filter: brightness(1);
+            transition: var(--transition);
         }
 
+        .avatar-frame:hover img {
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        /* Badge de estado */
+        .avatar-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-emerald), #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Headline y Typography */
         .headline-tag {
             color: var(--accent-color);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #60a5fa);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #ffffff 0%, #60a5fa 50%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .lead-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #06b6d4);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== SECTION TITLES ==================== */
+        .section-title {
+            text-align: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .section-title span {
+            background: linear-gradient(to right, var(--accent-color), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .lead-text {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            text-align: justify;
+        section {
+            margin-bottom: 80px;
         }
 
-        /* Títulos de Sección */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-        }
-        
-        .section-title span {
-            color: var(--accent-color);
-        }
-
-        /* DIMENSIÓN 1: Perfil Personal e Historia */
+        /* ==================== STORY SECTION ==================== */
         .story-block {
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(15, 23, 42, 0.5));
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
+            border-radius: 20px;
+            padding: 50px;
             margin-bottom: 60px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .story-block:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
         }
 
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .story-grid {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
+            gap: 40px;
         }
 
         .story-text h3 {
-            color: var(--accent-purple);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* Bloque: Qué Problemas Resuelvo (Mosaico de Tarjetas) */
+        .story-text p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            text-align: justify;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* ==================== PROBLEMS GRID ==================== */
         .problems-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 60px;
         }
 
         .problem-card {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
         }
 
         .problem-card:hover {
             border-color: rgba(56, 189, 248, 0.3);
-            transform: translateY(-2px);
-            background: rgba(15, 23, 42, 0.6);
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.3));
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.1);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
         }
 
         .problem-card h4 {
             color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .problem-card h4::before {
             content: "→";
             color: var(--accent-color);
-            font-weight: 800;
+            font-weight: 900;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .problem-card:hover h4::before {
+            transform: translateX(5px);
         }
 
         .problem-card p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             text-align: left;
+            line-height: 1.7;
         }
 
-        /* DIMENSIÓN 2: CV y Perfil Profesional */
+        /* ==================== CV SECTION ==================== */
         .cv-layout {
             display: flex;
             flex-wrap: wrap;
@@ -213,15 +397,25 @@
         .panel {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 30px;
+            border-radius: 16px;
+            padding: 35px;
             margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .panel:hover {
+            border-color: rgba(56, 189, 248, 0.2);
+            background: rgba(15, 23, 42, 0.7);
         }
 
         .job-card {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 20px;
+            padding-bottom: 25px;
+            animation: slideInUp 0.8s ease-out backwards;
         }
 
         .job-card:last-child {
@@ -231,19 +425,22 @@
         }
 
         .job-title {
-            font-size: 1.2rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
             color: #f8fafc;
-            font-weight: 600;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .job-meta {
             font-size: 0.85rem;
             color: var(--accent-color);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
-        
+
         .job-card ul {
             margin-left: 20px;
             color: #cbd5e1;
@@ -251,90 +448,219 @@
         }
 
         .job-card li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.7;
         }
 
-        /* Mando y Tecnologías */
+        /* Pills / Tags */
         .pill {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             color: #cbd5e1;
-            padding: 6px 14px;
+            padding: 8px 16px;
             font-size: 0.8rem;
             border-radius: 20px;
-            margin: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 6px 6px 6px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         .pill-blue {
-            background: rgba(56, 189, 248, 0.1) !important;
+            background: rgba(56, 189, 248, 0.15) !important;
             color: var(--accent-color) !important;
-            border: 1px solid rgba(56, 189, 248, 0.2) !important;
+            border: 1px solid rgba(56, 189, 248, 0.3) !important;
         }
 
-        /* Footer y Datos de Interacción */
+        .pill-blue:hover {
+            background: rgba(56, 189, 248, 0.25) !important;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* ==================== FOOTER CTA ==================== */
         .footer-cta {
-            background: linear-gradient(135deg, #1e1b4b, #0f172a);
-            border: 1px solid #312e81;
-            border-radius: 16px;
-            padding: 40px;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.5), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 20px;
+            padding: 60px 40px;
             text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .footer-cta h2 {
+            font-family: 'Syne', sans-serif;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+            font-weight: 800;
         }
 
         .contact-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
+            gap: 35px;
+            margin-top: 30px;
             font-size: 1rem;
             color: var(--text-muted);
         }
 
         .contact-link {
-            color: #ffffff;
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            transition: var(--transition);
+            position: relative;
         }
 
-        .contact-link:hover {
-            color: var(--accent-color);
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: var(--transition);
         }
-    </style>
-    <script>
-        // Generar avatar con iniciales
-        function generateAvatarWithInitials() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 220;
-            canvas.height = 220;
-            const ctx = canvas.getContext('2d');
-            
-            // Fondo con gradiente
-            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            gradient.addColorStop(0, '#38bdf8');
-            gradient.addColorStop(1, '#1e1b4b');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Texto con iniciales
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 80px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('MTG', 110, 110);
-            
-            // Convertir a imagen
-            return canvas.toDataURL('image/png');
+
+        .contact-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
-        
-        // Ejecutar cuando carga la página
-        window.addEventListener('load', function() {
-            const avatarImg = document.querySelector('.avatar-frame img');
-            if (avatarImg) {
-                avatarImg.src = generateAvatarWithInitials();
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .hero-visual {
+                flex: 0 1 250px;
             }
-        });
-    </script>
+
+            .avatar-frame {
+                width: 220px;
+                height: 220px;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            .hero-section {
+                gap: 40px;
+                padding: 60px 0 80px 0;
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cv-layout {
+                flex-direction: column;
+            }
+
+            .cv-main, .cv-side {
+                min-width: auto;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .footer-cta {
+                padding: 40px 25px;
+            }
+
+            .footer-cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .story-block {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-visual {
+                flex: 0 1 200px;
+            }
+
+            .avatar-frame {
+                width: 180px;
+                height: 180px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .story-block {
+                padding: 20px;
+            }
+        }
+
+        /* Stagger animations */
+        .problem-card:nth-child(1) { animation-delay: 0s; }
+        .problem-card:nth-child(2) { animation-delay: 0.1s; }
+        .problem-card:nth-child(3) { animation-delay: 0.2s; }
+        .problem-card:nth-child(4) { animation-delay: 0.3s; }
+        .problem-card:nth-child(5) { animation-delay: 0.4s; }
+        .problem-card:nth-child(6) { animation-delay: 0.5s; }
+
+        .job-card:nth-child(1) { animation-delay: 0s; }
+        .job-card:nth-child(2) { animation-delay: 0.1s; }
+        .job-card:nth-child(3) { animation-delay: 0.2s; }
+
+        .panel:nth-child(1) { animation-delay: 0s; }
+        .panel:nth-child(2) { animation-delay: 0.1s; }
+        .panel:nth-child(3) { animation-delay: 0.2s; }
+    </style>
 </head>
 <body>
 
@@ -342,39 +668,44 @@
 
         <section class="hero-section">
             <div class="hero-content">
-                <div class="headline-tag">Business Intelligence &amp; Strategy</div>
+                <div class="headline-tag">📊 Business Intelligence & Strategy</div>
                 <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
                 <p class="lead-text">
-                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones, Comercial y Administración.
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial. He liderado transformaciones de datos en Venezuela, Argentina y España.
                 </p>
+                <div class="cta-buttons">
+                    <a href="mailto:mtorresguevara@gmail.com" class="btn btn-primary">📬 Contactarme</a>
+                    <a href="https://linkedin.com/in/mtorresguevara" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
+                </div>
             </div>
             <div class="hero-visual">
                 <div class="avatar-frame">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Manuel Torres Guevara">
+                    <img id="avatar-image" src="https://avatars.githubusercontent.com/u/285278197?v=4" alt="Manuel Torres Guevara">
+                    <div class="avatar-badge">🎯 Open</div>
                 </div>
             </div>
         </section>
 
-        <section style="margin-top: 40px;">
+        <section>
             <h2 class="section-title">El Motor Humano: <span>Historia y Filosofía</span></h2>
             <div class="story-block">
                 <div class="story-grid">
                     <div class="story-text">
-                        <h3>Adaptación y Resiliencia en 3 Países</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; text-align: justify; margin-bottom: 15px;">
-                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que la adaptabilidad es una fortaleza corporativa.
+                        <h3>🌍 Adaptación y Resiliencia en 3 Países</h3>
+                        <p>
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que la incertidumbre es la constante.
                         </p>
-                        <p style="color: #cbd5e1; font-size: 1rem; text-align: justify;">
-                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través del dato nunca lo hace.
+                        <p>
+                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de números confiables permanece inmutable.
                         </p>
                     </div>
                     <div class="story-text">
-                        <h3>El Propósito Detrás de la Pantalla</h3>
-                        <p style="color: #cbd5e1; font-size: 1rem; text-align: justify; margin-bottom: 15px;">
-                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA en andamiento.
+                        <h3>❤️ El Propósito Detrás de la Pantalla</h3>
+                        <p>
+                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA.
                         </p>
-                        <p style="color: #cbd5e1; font-size: 1rem; text-align: justify;">
-                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel.
+                        <p>
+                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y resultados demostrables.
                         </p>
                     </div>
                 </div>
@@ -390,7 +721,7 @@
                 </div>
                 <div class="problem-card">
                     <h4>Fuga de margen en canales de venta</h4>
-                    <p>Diseño y ejecuto auditorías de Pricing competitivas a nivel nacional, detectando desviaciones puntuales y protegiendo la rentabilidad del P&amp;L.</p>
+                    <p>Diseño y ejecuto auditorías de Pricing competitivas a nivel nacional, detectando desviaciones puntuales y protegiendo la rentabilidad del P&L.</p>
                 </div>
                 <div class="problem-card">
                     <h4>Sobreanálisis mecánico innecesario</h4>
@@ -398,11 +729,11 @@
                 </div>
                 <div class="problem-card">
                     <h4>Fuerza de ventas desalineada</h4>
-                    <p>Estructuro modelos analíticos precisos para esquemas de compensación variable y KPI comerciales basados en el performance Sell-In y Sell-Out.</p>
+                    <p>Estructuro modelos analíticos precisos para esquemas de compensación variable y KPI comerciales basados en performance Sell-In y Sell-Out.</p>
                 </div>
                 <div class="problem-card">
                     <h4>Asignación ineficiente de cuotas</h4>
-                    <p>Desarrollo modelos predictivos para la segmentación inteligente de cuotas por canal de distribución, categoría de producto y SKU.</p>
+                    <p>Desarrollo modelos predictivos para la segmentación inteligente de cuotas por canal, categoría de producto y SKU.</p>
                 </div>
                 <div class="problem-card">
                     <h4>Gobernanza del Data Warehouse deficiente</h4>
@@ -418,7 +749,7 @@
                 <div class="cv-main">
                     <div class="panel">
                         <div class="job-card">
-                            <div class="job-title">Especialista Senior de Inteligencia Comercial</div>
+                            <div class="job-title">🎯 Especialista Senior de Inteligencia Comercial</div>
                             <div class="job-meta">Dikter S.A. – Devre | Jun 2023 – Ago 2025 | Argentina</div>
                             <ul>
                                 <li>Dirigí la estrategia nacional de Pricing y análisis competitivo para la optimización de márgenes comerciales.</li>
@@ -428,7 +759,7 @@
                         </div>
 
                         <div class="job-card">
-                            <div class="job-title">Insight Specialist</div>
+                            <div class="job-title">📈 Insight Specialist</div>
                             <div class="job-meta">Red Bull | Ago 2019 – Sep 2021 | Argentina</div>
                             <ul>
                                 <li>Responsable de la generación de Business Intelligence regional y el procesamiento de auditorías de consumo (Nielsen, Scentia).</li>
@@ -438,7 +769,7 @@
                         </div>
 
                         <div class="job-card">
-                            <div class="job-title">Sales Planning &amp; Route to Market</div>
+                            <div class="job-title">🎲 Sales Planning & Route to Market</div>
                             <div class="job-meta">Mondelēz International | Jul 2017 – May 2019 | Venezuela</div>
                             <ul>
                                 <li>Estructuré el modelo predictivo de asignación de cuotas nacionales segmentado por canal, categoría y SKU.</li>
@@ -450,31 +781,34 @@
 
                 <div class="cv-side">
                     <div class="panel">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #fff;">Educación Ejecutiva</h3>
-                        <p style="font-size: 0.95rem; margin-bottom: 5px; font-weight: 600;">MBA (Master in Business Administration)</p>
-                        <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 15px;">En curso | Madrid, España</p>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">🎓 Educación Ejecutiva</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">MBA (Master in Business Administration)</p>
+                        <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 20px; font-weight: 500;">En curso | Madrid, España</p>
                         
-                        <p style="font-size: 0.95rem; margin-bottom: 5px; font-weight: 600;">Licenciatura en Ciencias Administrativas</p>
+                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">Licenciatura en Ciencias Administrativas</p>
                         <p style="font-size: 0.85rem; color: var(--text-muted);">Universidad Monteávila | Venezuela</p>
                     </div>
 
                     <div class="panel">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #fff;">Competencias Core</h3>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">⚡ Competencias Core</h3>
                         <span class="pill pill-blue">Revenue Growth Management</span>
                         <span class="pill pill-blue">Commercial Strategy</span>
-                        <span class="pill pill-blue">Pricing &amp; Profitability</span>
+                        <span class="pill pill-blue">Pricing & Profitability</span>
                         <span class="pill pill-blue">Route to Market</span>
                         <span class="pill pill-blue">Data Governance</span>
+                        <span class="pill pill-blue">Business Intelligence</span>
                     </div>
 
                     <div class="panel">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #fff;">Ecosistema Digital</h3>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">🛠️ Ecosistema Digital</h3>
                         <span class="pill">Power BI</span>
                         <span class="pill">Excel Avanzado</span>
                         <span class="pill">Power Query</span>
+                        <span class="pill">Python</span>
                         <span class="pill">SAP SD</span>
                         <span class="pill">Business Objects</span>
                         <span class="pill">Nielsen / Scentia</span>
+                        <span class="pill">Azure</span>
                     </div>
                 </div>
 
@@ -482,14 +816,14 @@
         </section>
 
         <footer class="footer-cta">
-            <h2 style="color: #ffffff; margin-bottom: 10px; font-size: 1.8rem;">¿Conectamos el dato con la rentabilidad?</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 20px auto;">
-                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial.
+            <h2>¿Conectamos el dato con la rentabilidad?</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 25px auto; font-size: 1.05rem;">
+                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y colaboraciones.
             </p>
             <div class="contact-grid">
-                <div>Email: <a href="mailto:mtorresguevara@gmail.com" class="contact-link">mtorresguevara@gmail.com</a></div>
-                <div>Teléfono: <span style="color: #fff; font-weight: 600;">+34 671 61 23 64</span></div>
-                <div>LinkedIn: <a href="https://linkedin.com" target="_blank" class="contact-link">Manuel Torres Guevara</a></div>
+                <div>📧 <a href="mailto:mtorresguevara@gmail.com" class="contact-link">mtorresguevara@gmail.com</a></div>
+                <div>📱 <span style="color: #fff; font-weight: 600;">+34 671 61 23 64</span></div>
+                <div>💼 <a href="https://linkedin.com/in/mtorresguevara" target="_blank" class="contact-link">Manuel Torres</a></div>
             </div>
         </footer>
 
