@@ -301,6 +301,40 @@
             color: var(--accent-color);
         }
     </style>
+    <script>
+        // Generar avatar con iniciales
+        function generateAvatarWithInitials() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 220;
+            canvas.height = 220;
+            const ctx = canvas.getContext('2d');
+            
+            // Fondo con gradiente
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#38bdf8');
+            gradient.addColorStop(1, '#1e1b4b');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Texto con iniciales
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 80px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MTG', 110, 110);
+            
+            // Convertir a imagen
+            return canvas.toDataURL('image/png');
+        }
+        
+        // Ejecutar cuando carga la página
+        window.addEventListener('load', function() {
+            const avatarImg = document.querySelector('.avatar-frame img');
+            if (avatarImg) {
+                avatarImg.src = generateAvatarWithInitials();
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -311,12 +345,12 @@
                 <div class="headline-tag">Business Intelligence &amp; Strategy</div>
                 <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
                 <p class="lead-text">
-                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Ventas. Mi enfoque liquida el sobreanálisis mecánico para liberar tiempo de negociación y estrategia real.
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones, Comercial y Administración.
                 </p>
             </div>
             <div class="hero-visual">
                 <div class="avatar-frame">
-                    <img src="tu-foto.jpg" alt="Manuel Torres Guevara">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Manuel Torres Guevara">
                 </div>
             </div>
         </section>
@@ -328,16 +362,16 @@
                     <div class="story-text">
                         <h3>Adaptación y Resiliencia en 3 Países</h3>
                         <p style="color: #cbd5e1; font-size: 1rem; text-align: justify; margin-bottom: 15px;">
-                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España, me ha dotado de una capacidad única de adaptabilidad y lectura veloz de mercados complejos.
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que la adaptabilidad es una fortaleza corporativa.
                         </p>
                         <p style="color: #cbd5e1; font-size: 1rem; text-align: justify;">
-                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de la verdad del dato es universal.
+                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través del dato nunca lo hace.
                         </p>
                     </div>
                     <div class="story-text">
                         <h3>El Propósito Detrás de la Pantalla</h3>
                         <p style="color: #cbd5e1; font-size: 1rem; text-align: justify; margin-bottom: 15px;">
-                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA, entiendo el crecimiento profesional como el vehículo para consolidar el bienestar y la estabilidad absoluta de mi esposa y de mi hijo.
+                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA en andamiento.
                         </p>
                         <p style="color: #cbd5e1; font-size: 1rem; text-align: justify;">
                             Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel.
