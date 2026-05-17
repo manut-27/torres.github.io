@@ -114,6 +114,9 @@
             animation: pulse-glow 4s ease-in-out infinite;
             transition: var(--transition);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .avatar-frame:hover {
@@ -124,13 +127,17 @@
                 inset 0 0 40px rgba(255, 255, 255, 0.15);
         }
 
-        .avatar-frame img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #1e293b;
-            display: block;
+        .avatar-initials {
+            font-family: 'Raleway', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #ffffff, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Badge de estado */
@@ -258,41 +265,6 @@
 
         section {
             margin-bottom: 80px;
-        }
-
-        /* ==================== COUNTRY FLAGS / ICONS ==================== */
-        .country-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .country-item {
-            text-align: center;
-            animation: slideInUp 0.8s ease-out backwards;
-        }
-
-        .country-item:nth-child(1) { animation-delay: 0s; }
-        .country-item:nth-child(2) { animation-delay: 0.1s; }
-        .country-item:nth-child(3) { animation-delay: 0.2s; }
-
-        .country-icon {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .country-item:nth-child(2) .country-icon { animation-delay: 0.3s; }
-        .country-item:nth-child(3) .country-icon { animation-delay: 0.6s; }
-
-        .country-name {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         /* ==================== STORY SECTION ==================== */
@@ -566,12 +538,6 @@
             font-weight: 500;
         }
 
-        .contact-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1024px) {
             .hero-visual {
@@ -581,6 +547,10 @@
             .avatar-frame {
                 width: 220px;
                 height: 220px;
+            }
+
+            .avatar-initials {
+                font-size: 3.8rem;
             }
 
             h1 {
@@ -652,14 +622,6 @@
             .story-block {
                 padding: 30px;
             }
-
-            .country-icons {
-                gap: 20px;
-            }
-
-            .country-icon {
-                font-size: 3rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -670,6 +632,10 @@
             .avatar-frame {
                 width: 180px;
                 height: 180px;
+            }
+
+            .avatar-initials {
+                font-size: 3rem;
             }
 
             h1 {
@@ -690,10 +656,6 @@
 
             .problem-card {
                 padding: 20px;
-            }
-
-            .country-icon {
-                font-size: 2.5rem;
             }
         }
 
@@ -723,7 +685,7 @@
                 <div class="headline-tag">📊 Business Intelligence & Strategy</div>
                 <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
                 <p class="lead-text">
-                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial. He liderado transformaciones de datos en Venezuela, Argentina y España.
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial.
                 </p>
                 <div class="cta-buttons">
                     <a href="mailto:mtorresguevara@gmail.com" class="btn btn-primary">📬 Contactarme</a>
@@ -732,36 +694,20 @@
             </div>
             <div class="hero-visual">
                 <div class="avatar-frame">
-                    <img src="https://avatars.githubusercontent.com/u/285278197?v=4&s=260" alt="Manuel Torres Guevara" loading="lazy">
+                    <div class="avatar-initials">MT</div>
                     <div class="avatar-badge">🎯 Open</div>
                 </div>
             </div>
         </section>
-
-        <!-- COUNTRY FLAGS SECTION -->
-        <div class="country-icons">
-            <div class="country-item">
-                <div class="country-icon">🇻🇪</div>
-                <div class="country-name">Venezuela</div>
-            </div>
-            <div class="country-item">
-                <div class="country-icon">🇦🇷</div>
-                <div class="country-name">Argentina</div>
-            </div>
-            <div class="country-item">
-                <div class="country-icon">🇪🇸</div>
-                <div class="country-name">España</div>
-            </div>
-        </div>
 
         <section>
             <h2 class="section-title">El Motor Humano: <span>Historia y Filosofía</span></h2>
             <div class="story-block">
                 <div class="story-grid">
                     <div class="story-text">
-                        <h3>🌍 Adaptación y Resiliencia en 3 Países</h3>
+                        <h3>🌍 Experiencia Internacional</h3>
                         <p>
-                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que la incertidumbre es la constante.
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en múltiples mercados me enseñó que la incertidumbre es la constante.
                         </p>
                         <p>
                             Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de números confiables permanece inmutable.
@@ -854,7 +800,7 @@
                         <p style="font-size: 0.8rem; color: var(--accent-color); margin-bottom: 18px; font-weight: 400;">En curso | Madrid, España</p>
                         
                         <p style="font-size: 0.9rem; margin-bottom: 5px; font-weight: 500;">Licenciatura en Ciencias Administrativas</p>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 300;">Universidad Monteávila | Venezuela</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 300;">Universidad Monteávila</p>
                     </div>
 
                     <div class="panel">
