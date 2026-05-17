@@ -6,7 +6,7 @@
     <title>Manuel Torres Guevara | Strategic Data Leader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0a0e1a;
@@ -32,7 +32,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
             background-attachment: fixed;
             color: var(--text-main);
@@ -40,12 +40,6 @@
             padding: 0;
             margin: 0;
             overflow-x: hidden;
-        }
-
-        /* Animación de fondo */
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
         }
 
         /* Animación de entrada */
@@ -68,6 +62,11 @@
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.25); }
             50% { box-shadow: 0 0 60px rgba(56, 189, 248, 0.4); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .container {
@@ -114,6 +113,7 @@
                 inset 0 0 30px rgba(255, 255, 255, 0.1);
             animation: pulse-glow 4s ease-in-out infinite;
             transition: var(--transition);
+            overflow: hidden;
         }
 
         .avatar-frame:hover {
@@ -130,12 +130,7 @@
             border-radius: 50%;
             object-fit: cover;
             background-color: #1e293b;
-            filter: brightness(1);
-            transition: var(--transition);
-        }
-
-        .avatar-frame:hover img {
-            filter: brightness(1.1) contrast(1.1);
+            display: block;
         }
 
         /* Badge de estado */
@@ -156,15 +151,16 @@
             text-align: center;
             border: 3px solid var(--bg-color);
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            animation: float 3s ease-in-out infinite;
         }
 
         /* Headline y Typography */
         .headline-tag {
             color: var(--accent-color);
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             display: inline-block;
             padding: 8px 16px;
@@ -174,11 +170,11 @@
         }
 
         h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1.5px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
             margin-bottom: 25px;
             background: linear-gradient(to right, #ffffff 0%, #60a5fa 50%, var(--accent-color) 100%);
             -webkit-background-clip: text;
@@ -188,12 +184,13 @@
         }
 
         .lead-text {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-muted);
             margin-bottom: 30px;
             text-align: justify;
             line-height: 1.8;
             animation: slideInUp 0.8s ease-out 0.2s backwards;
+            font-weight: 300;
         }
 
         /* CTA Buttons */
@@ -205,10 +202,10 @@
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 12px 28px;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: var(--transition);
             border: 2px solid transparent;
@@ -243,11 +240,11 @@
         /* ==================== SECTION TITLES ==================== */
         .section-title {
             text-align: center;
-            font-family: 'Syne', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Raleway', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
             margin-bottom: 50px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.3px;
             color: #ffffff;
             animation: slideInUp 0.8s ease-out backwards;
         }
@@ -263,12 +260,47 @@
             margin-bottom: 80px;
         }
 
+        /* ==================== COUNTRY FLAGS / ICONS ==================== */
+        .country-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .country-item {
+            text-align: center;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+
+        .country-item:nth-child(1) { animation-delay: 0s; }
+        .country-item:nth-child(2) { animation-delay: 0.1s; }
+        .country-item:nth-child(3) { animation-delay: 0.2s; }
+
+        .country-icon {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .country-item:nth-child(2) .country-icon { animation-delay: 0.3s; }
+        .country-item:nth-child(3) .country-icon { animation-delay: 0.6s; }
+
+        .country-name {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* ==================== STORY SECTION ==================== */
         .story-block {
             background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(15, 23, 42, 0.5));
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 50px;
+            border-radius: 16px;
+            padding: 45px;
             margin-bottom: 60px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -289,18 +321,19 @@
 
         .story-text h3 {
             color: var(--accent-color);
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
         .story-text p {
             color: #cbd5e1;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-align: justify;
             margin-bottom: 15px;
             line-height: 1.8;
+            font-weight: 300;
         }
 
         /* ==================== PROBLEMS GRID ==================== */
@@ -314,8 +347,8 @@
         .problem-card {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(30, 41, 59, 0.2));
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
+            border-radius: 12px;
+            padding: 28px;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -348,20 +381,20 @@
 
         .problem-card h4 {
             color: #ffffff;
-            font-family: 'Syne', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .problem-card h4::before {
             content: "→";
             color: var(--accent-color);
-            font-weight: 900;
-            font-size: 1.3rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             transition: var(--transition);
         }
 
@@ -370,10 +403,11 @@
         }
 
         .problem-card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             text-align: left;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
         /* ==================== CV SECTION ==================== */
@@ -397,8 +431,8 @@
         .panel {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 35px;
+            border-radius: 12px;
+            padding: 32px;
             margin-bottom: 25px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -412,7 +446,7 @@
         }
 
         .job-card {
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding-bottom: 25px;
             animation: slideInUp 0.8s ease-out backwards;
@@ -425,31 +459,32 @@
         }
 
         .job-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.3rem;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.15rem;
             color: #f8fafc;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
         .job-meta {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--accent-color);
             margin-bottom: 15px;
             text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .job-card ul {
             margin-left: 20px;
             color: #cbd5e1;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 300;
         }
 
         .job-card li {
             margin-bottom: 10px;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* Pills / Tags */
@@ -457,12 +492,13 @@
             display: inline-block;
             background: rgba(255, 255, 255, 0.05);
             color: #cbd5e1;
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            border-radius: 20px;
-            margin: 6px 6px 6px 0;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            border-radius: 16px;
+            margin: 5px 6px 5px 0;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
+            font-weight: 500;
         }
 
         .pill:hover {
@@ -485,55 +521,55 @@
         .footer-cta {
             background: linear-gradient(135deg, rgba(30, 27, 75, 0.5), rgba(15, 23, 42, 0.8));
             border: 1px solid rgba(56, 189, 248, 0.15);
-            border-radius: 20px;
-            padding: 60px 40px;
+            border-radius: 16px;
+            padding: 55px 40px;
             text-align: center;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             animation: slideInUp 0.8s ease-out backwards;
         }
 
         .footer-cta h2 {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Raleway', sans-serif;
             color: #ffffff;
             margin-bottom: 15px;
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .footer-cta p {
+            font-weight: 300;
         }
 
         .contact-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 35px;
+            gap: 40px;
             margin-top: 30px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+        }
+
+        .contact-value {
+            color: var(--text-main);
+            font-weight: 500;
         }
 
         .contact-link {
             color: var(--accent-color);
             text-decoration: none;
-            font-weight: 700;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: var(--transition);
-        }
-
-        .contact-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+            font-weight: 600;
         }
 
         /* ==================== RESPONSIVE ==================== */
@@ -548,11 +584,11 @@
             }
 
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
 
@@ -568,11 +604,11 @@
             }
 
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .section-title {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
 
             .story-grid {
@@ -594,7 +630,7 @@
 
             .contact-grid {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             .cta-buttons {
@@ -610,11 +646,19 @@
             }
 
             .footer-cta h2 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
 
             .story-block {
                 padding: 30px;
+            }
+
+            .country-icons {
+                gap: 20px;
+            }
+
+            .country-icon {
+                font-size: 3rem;
             }
         }
 
@@ -629,11 +673,11 @@
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .section-title {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             .panel {
@@ -642,6 +686,14 @@
 
             .story-block {
                 padding: 20px;
+            }
+
+            .problem-card {
+                padding: 20px;
+            }
+
+            .country-icon {
+                font-size: 2.5rem;
             }
         }
 
@@ -675,16 +727,32 @@
                 </p>
                 <div class="cta-buttons">
                     <a href="mailto:mtorresguevara@gmail.com" class="btn btn-primary">📬 Contactarme</a>
-                    <a href="https://linkedin.com/in/mtorresguevara" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/manuel-torres-guevara-0590205b" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="avatar-frame">
-                    <img id="avatar-image" src="https://avatars.githubusercontent.com/u/285278197?v=4" alt="Manuel Torres Guevara">
+                    <img src="https://avatars.githubusercontent.com/u/285278197?v=4&s=260" alt="Manuel Torres Guevara" loading="lazy">
                     <div class="avatar-badge">🎯 Open</div>
                 </div>
             </div>
         </section>
+
+        <!-- COUNTRY FLAGS SECTION -->
+        <div class="country-icons">
+            <div class="country-item">
+                <div class="country-icon">🇻🇪</div>
+                <div class="country-name">Venezuela</div>
+            </div>
+            <div class="country-item">
+                <div class="country-icon">🇦🇷</div>
+                <div class="country-name">Argentina</div>
+            </div>
+            <div class="country-item">
+                <div class="country-icon">🇪🇸</div>
+                <div class="country-name">España</div>
+            </div>
+        </div>
 
         <section>
             <h2 class="section-title">El Motor Humano: <span>Historia y Filosofía</span></h2>
@@ -781,16 +849,16 @@
 
                 <div class="cv-side">
                     <div class="panel">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">🎓 Educación Ejecutiva</h3>
-                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">MBA (Master in Business Administration)</p>
-                        <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 20px; font-weight: 500;">En curso | Madrid, España</p>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 18px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">🎓 Educación Ejecutiva</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 5px; font-weight: 500;">MBA (Master in Business Administration)</p>
+                        <p style="font-size: 0.8rem; color: var(--accent-color); margin-bottom: 18px; font-weight: 400;">En curso | Madrid, España</p>
                         
-                        <p style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">Licenciatura en Ciencias Administrativas</p>
-                        <p style="font-size: 0.85rem; color: var(--text-muted);">Universidad Monteávila | Venezuela</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 5px; font-weight: 500;">Licenciatura en Ciencias Administrativas</p>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 300;">Universidad Monteávila | Venezuela</p>
                     </div>
 
                     <div class="panel">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">⚡ Competencias Core</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">⚡ Competencias Core</h3>
                         <span class="pill pill-blue">Revenue Growth Management</span>
                         <span class="pill pill-blue">Commercial Strategy</span>
                         <span class="pill pill-blue">Pricing & Profitability</span>
@@ -800,7 +868,7 @@
                     </div>
 
                     <div class="panel">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700;">🛠️ Ecosistema Digital</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: #fff; font-family: 'Raleway', sans-serif; font-weight: 600;">🛠️ Ecosistema Digital</h3>
                         <span class="pill">Power BI</span>
                         <span class="pill">Excel Avanzado</span>
                         <span class="pill">Power Query</span>
@@ -817,13 +885,22 @@
 
         <footer class="footer-cta">
             <h2>¿Conectamos el dato con la rentabilidad?</h2>
-            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 25px auto; font-size: 1.05rem;">
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 25px auto; font-size: 0.95rem;">
                 Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y colaboraciones.
             </p>
             <div class="contact-grid">
-                <div>📧 <a href="mailto:mtorresguevara@gmail.com" class="contact-link">mtorresguevara@gmail.com</a></div>
-                <div>📱 <span style="color: #fff; font-weight: 600;">+34 671 61 23 64</span></div>
-                <div>💼 <a href="https://linkedin.com/in/mtorresguevara" target="_blank" class="contact-link">Manuel Torres</a></div>
+                <div class="contact-item">
+                    <span class="contact-label">📧 Email:</span>
+                    <span class="contact-value">mtorresguevara@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">📱 Teléfono:</span>
+                    <span class="contact-value">+34 671 61 23 64</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">💼 LinkedIn:</span>
+                    <span class="contact-value">Manuel Torres Guevara</span>
+                </div>
             </div>
         </footer>
 
