@@ -197,6 +197,18 @@
             transform: translateY(-3px);
         }
 
+        .btn-back-to-top {
+            background: linear-gradient(135deg, var(--accent-color), #06b6d4);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+            margin-top: 30px;
+        }
+
+        .btn-back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.35);
+        }
+
         .section-title {
             text-align: center;
             font-family: 'Raleway', sans-serif;
@@ -472,6 +484,7 @@
 
         .contact-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 8px;
         }
@@ -494,6 +507,14 @@
 
         .contact-link:hover {
             color: #60a5fa;
+        }
+
+        .email-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+            font-weight: 400;
         }
 
         @media (max-width: 1024px) {
@@ -543,12 +564,12 @@
 
     <div class="container">
 
-        <section class="hero-section">
+        <section class="hero-section" id="inicio">
             <div class="hero-content">
                 <div class="headline-tag">📊 Business Intelligence & Strategy</div>
                 <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
                 <p class="lead-text">
-                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial.
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Ope[...]
                 </p>
                 <div class="cta-buttons">
                     <a href="#contact-section" class="btn btn-primary">📬 Contactarme</a>
@@ -569,19 +590,19 @@
                     <div class="story-text">
                         <h3>🌍 Experiencia Internacional</h3>
                         <p>
-                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en múltiples mercados me enseñó que la incertidumbre es la constante.
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en múltiples mercados me enseñó que la incert[...]
                         </p>
                         <p>
-                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de números confiables permanece inmutable.
+                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través[...]
                         </p>
                     </div>
                     <div class="story-text">
                         <h3>❤️ El Propósito Detrás de la Pantalla</h3>
                         <p>
-                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA.
+                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MB[...]
                         </p>
                         <p>
-                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y resultados demostrables.
+                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y [...]
                         </p>
                     </div>
                 </div>
@@ -694,12 +715,13 @@
         <footer class="footer-cta" id="contact-section">
             <h2>¿Conectamos el dato con la rentabilidad?</h2>
             <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 25px auto; font-size: 0.95rem;">
-                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y colaboraciones.
+                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y[...]
             </p>
             <div class="contact-grid">
                 <div class="contact-item">
                     <span class="contact-label">📧 Email:</span>
                     <span class="contact-value">mtorresguevara@gmail.com</span>
+                    <div class="email-note">Por favor asegurate de colocar las 3 R. Gracias</div>
                 </div>
                 <div class="contact-item">
                     <span class="contact-label">📱 Teléfono:</span>
@@ -710,6 +732,7 @@
                     <a href="https://www.linkedin.com/in/manuel-torres-guevara-0590205b" target="_blank" class="contact-link">Manuel Torres Guevara</a>
                 </div>
             </div>
+            <a href="#inicio" class="btn btn-back-to-top">⬆️ Volver al Inicio</a>
         </footer>
 
     </div>
