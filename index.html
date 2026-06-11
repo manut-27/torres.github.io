@@ -160,6 +160,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: slideInUp 0.8s ease-out 0.1s backwards;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .lead-text {
@@ -170,6 +172,8 @@
             line-height: 1.8;
             animation: slideInUp 0.8s ease-out 0.2s backwards;
             font-weight: 300;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .cta-buttons {
@@ -191,6 +195,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            word-break: break-word;
+            white-space: normal;
         }
 
         .btn-primary {
@@ -246,6 +252,8 @@
             margin-bottom: 50px;
             color: #ffffff;
             animation: slideInUp 0.8s ease-out backwards;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .section-title span {
@@ -288,6 +296,8 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .story-text p {
@@ -297,6 +307,8 @@
             margin-bottom: 15px;
             line-height: 1.8;
             font-weight: 300;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .problems-grid {
@@ -350,6 +362,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .problem-card h4::before {
@@ -358,6 +372,7 @@
             font-weight: 700;
             font-size: 1.2rem;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
         .problem-card:hover h4::before {
@@ -370,6 +385,8 @@
             text-align: left;
             line-height: 1.6;
             font-weight: 300;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .cv-layout {
@@ -399,6 +416,8 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
             animation: slideInUp 0.8s ease-out backwards;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .panel:hover {
@@ -425,6 +444,8 @@
             color: #f8fafc;
             font-weight: 600;
             margin-bottom: 8px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .job-meta {
@@ -434,6 +455,8 @@
             text-transform: uppercase;
             font-weight: 500;
             letter-spacing: 0.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .job-card ul {
@@ -446,6 +469,8 @@
         .job-card li {
             margin-bottom: 10px;
             line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .pill {
@@ -459,6 +484,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
             font-weight: 500;
+            word-break: break-word;
+            white-space: normal;
         }
 
         .pill:hover {
@@ -485,6 +512,8 @@
             text-align: center;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             animation: slideInUp 0.8s ease-out backwards;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .footer-cta h2 {
@@ -493,10 +522,14 @@
             margin-bottom: 15px;
             font-size: 1.8rem;
             font-weight: 600;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .footer-cta p {
             font-weight: 300;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .contact-grid {
@@ -524,6 +557,8 @@
         .contact-value {
             color: var(--text-main);
             font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .reference-text {
@@ -531,6 +566,8 @@
             font-size: 0.9rem;
             margin-top: 8px;
             font-style: italic;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         @media (max-width: 768px) {
@@ -568,7 +605,7 @@
                 <div class="headline-tag">📊 Business Intelligence & Strategy</div>
                 <h1>La IA amplifica la velocidad de las decisiones. El criterio humano asegura su rentabilidad.</h1>
                 <p class="lead-text">
-                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones y Comercial. He liderado transformaciones de datos en empresas multimarca a nivel nacional e internacional, optimizando márgenes, agilidad comercial y gobernanza del dato. Hoy ofrezco mi expertise a través de proyectos de Strategic Commercial Intelligence, Revenue Management y Data Governance para directivos que buscan convertir datos en rentabilidad comprobable.
+                    Soy Manuel Torres Guevara. Desarrollo arquitecturas de analítica avanzada y automatización inteligente para simplificar la toma de decisiones complejas en Direcciones de Operaciones, Comercial y Financiera. Transformo datos dispersos en inteligencia accionable que acelera resultados y protege márgenes.
                 </p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">📬 Contactarme</a>
@@ -591,19 +628,19 @@
                     <div class="story-text">
                         <h3>🌍 Adaptación y Resiliencia en 3 Países</h3>
                         <p>
-                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que la excelencia técnica debe ir acompañada de flexibilidad y empatía. Cada contexto económico cambió mis enfoques, pero confirmó mi convicción: los datos sin propósito comercial son ruido. Lo importante es conectar el dato con la decisión que genera margen.
+                            Mi carrera profesional no se construyó en una zona de confort. Liderar la gestión de datos y estrategias comerciales en países como Venezuela, Argentina y ahora España me enseñó que el valor no está en las herramientas, sino en la capacidad de adaptación y el criterio para priorizar.
                         </p>
                         <p>
-                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de decisiones basadas en inteligencia comercial es universal. Mis 8+ años de experiencia en Revenue Management y Commercial Strategy en compañías de Fortune 500 me han mostrado que la resiliencia personal es el mejor predictor del éxito profesional.
+                            Afrontar entornos culturales y económicos cambiantes me enseñó que las herramientas técnicas cambian, pero la necesidad de generar certidumbre financiera a través de datos confiables permanece. Esa experiencia multinacional es mi mayor activo: sé cómo construir soluciones analíticas en contextos adversos.
                         </p>
                     </div>
                     <div class="story-text">
                         <h3>❤️ El Propósito Detrás de la Pantalla</h3>
                         <p>
-                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA, creo en el trabajo como una extensión de valores: integridad, aprendizaje continuo y compromiso con el impacto. Mi experiencia en tres continentes me ha enseñado que la mejor habilidad es entender que cada problema tiene un contexto humano detrás.
+                            Mi dedicación y nivel de exigencia corporativa tienen un puerto claro: mi familia. Afincado firmemente en Madrid y potenciando mi visión ejecutiva a través de un MBA, creo que el liderazgo técnico sin propósito personal es vacío.
                         </p>
                         <p>
-                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y las decisiones que generan dinero. Por eso construyo puentes entre la complejidad analítica y la claridad ejecutiva. Mi norte es simple: dados los datos correctos, las personas toman mejores decisiones.
+                            Creo en conectar con los equipos operativos desde la empatía y el respeto mutuo; la soberbia técnica no vende. Lo que vende es el trabajo coordinado de alto nivel y las decisiones basadas en datos que generan rentabilidad medible. Eso es lo que busco: ser el puente entre lo técnico y lo rentable.
                         </p>
                     </div>
                 </div>
@@ -716,7 +753,7 @@
         <footer class="footer-cta" id="contact">
             <h2>¿Conectamos el dato con la rentabilidad?</h2>
             <p>
-                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y desafíos que generen impacto comercial medible. Conectemos si eres un directivo que necesita transformar datos en decisiones rentables.
+                Estoy establecido en Madrid, cursando el MBA y con plena disponibilidad para integrarme en posiciones de liderazgo estratégico comercial. Siempre abierto a nuevas oportunidades y desafíos analíticos de alto impacto. Si tu organización necesita transformar datos en decisiones rentables, hablemos.
             </p>
             <div class="contact-grid">
                 <div class="contact-item">
